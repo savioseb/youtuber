@@ -39,8 +39,7 @@
     $(document).ready(function(){
         var id = getUrlParameter('id');
         alert( 'id : ' + id );
-        var htmlText = '<a class="twitter-timeline" href="' + id  + '">Tweets</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
-        //var url = '<iframe  src="https://www.facebook.com/plugins/page.php?href='+id+'&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>';
+        var htmlText = '<a class="twitter-timeline" href=' + id  + '>Tweets</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
         alert( 'htmlText: ' + htmlText);
         //$('body').html( htmlText );
     });
