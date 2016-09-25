@@ -23,6 +23,7 @@
 </body>
 <script>
     var getUrlParameter = function getUrlParameter(sParam) {
+        alert( 'hi there' );
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
             sURLVariables = sPageURL.split('&'),
             sParameterName,
@@ -39,7 +40,7 @@
     $(document).ready(function(){
         alert( 'here');
         var id = getUrlParameter('id');
-        alert( 'id : ' + id );
+        //alert( 'id : ' + id );
         //var htmlText = '<a class="twitter-timeline" href=' + id  + '>Tweets</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
         //alert( 'htmlText: ' + htmlText);
         //$('body').html( htmlText );
