@@ -1,49 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <title>Hello Static World</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=320, user-scalable=no">
-    
+      
     <meta http-equiv="cache-control" content="max-age=0" />
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="pragma" content="no-cache" />
-    
     <script   src="https://code.jquery.com/jquery-1.12.3.js"   integrity="sha256-1XMpEtA4eKXNNpXcJ1pmMPs8JV+nwLdEqwiJeCQEkyc="   crossorigin="anonymous"></script>
     <style type="text/css">
-      html,body,iframe{
-          margin: 0;
-          padding:0;
-          width: 100%;
-          height:100%;
-      }
+    html,body,iframe{
+        margin: 0;
+        padding:0;
+        width: 100%;
+        height:100%;
+    }
     </style>
   </head>
+
   <body>
   </body>
+
   <script>
     var getUrlParameter = function getUrlParameter(sParam) {
-      alert( 'hi there' );
-      var sPageURL = decodeURIComponent(window.location.search.substring(1));
+      var sPageURL = decodeURIComponent(window.location.search.substring(1)),
       var sURLVariables = sPageURL.split('&');
       var sParameterName;
       var i;
 
       for (i = 0; i < sURLVariables.length; i++) {
         sParameterName = sURLVariables[i].split('=');
-
         if (sParameterName[0] === sParam) {
-            return sParameterName[1] === undefined ? true : sParameterName[1];
+          return sParameterName[1] === undefined ? true : sParameterName[1];
         }
       }
     };
-    $(document).ready(function() {
-      //alert( 'here' );
-      //var id = getUrlParameter('id');
+
+    $(document).ready(function(){
+      //console.log( 'ready' );
+      var id = getUrlParameter('id');
       //alert( 'id : ' + id );
-      //var htmlText = '<a class="twitter-timeline" href=' + id  + '>Tweets</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
+      var htmlText = '<a class="twitter-timeline" href="' + id  + '">Tweets</a>'; 
       //alert( 'htmlText: ' + htmlText);
-      //$('body').html( htmlText );
+      $('body').html( htmlText );
     });
   </script>
+  <script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </html>
