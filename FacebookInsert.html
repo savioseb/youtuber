@@ -41,7 +41,13 @@
     $(document).ready(function(){
         var id = getUrlParameter('id');
         //alert( 'id : ' + id );
-        var url = '<iframe  src="https://www.facebook.com/plugins/page.php?href='+id+'&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>';
+        var windowWidth = getUrlParameter( 'width' );
+        windowWidth = ( null != windowWidth )? windowWidth: 340;
+        var windowHeight = getUrlParameter( 'height' );
+        windowHeight = ( null != windowHeight )? windowHeight: 500;
+        
+        //console.log( 'windowWidth: ' , windowWidth , ' windowHeight: ' , windowHeight );
+        var url = '<iframe  src="https://www.facebook.com/plugins/page.php?href='+id+'&tabs=timeline&width=' + windowWidth + '&height=' + windowHeight + '&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>';
         //alert( 'url: ' + url);
         $('body').html( url );
         $('iframe').height($(window).height());
