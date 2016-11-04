@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <title>Share App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  </head>
+  <body style="display:flex; justify-content:center; align-items: center;">
+    <div >
+      <a href="" id="androidHyperlink"><img src="images/androidPlayStore.jpg" style="width:400px; height: 130px;" /> </a>
+      <a href="" id="iosHyperlink"><img src="images/iOSAppStore.jpg" style="width:400px; height:130px; " /> </a>
+    </div>
+  </body>
+  <script>
+
+    var getUrlParameter = function getUrlParameter(sParam) {
+      var sPageURL = decodeURIComponent(window.location.search.substring(1));
+      var sURLVariables = sPageURL.split('&');
+      var sParameterName;
+      var i;
+
+      for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+          return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+      }
+    };
+
+
+    var handleMobileDetected = function handleMobileDetected( storeLink ) {
+      console.log( 'handleMobileDetected: ' , storeLink );
+      window.location.href = storeLink;
+    }
+
+
+    $(document).ready(function() {
+      var uagentString = navigator.userAgent.toLowerCase();
+      var indexAndroid = uagentString.indexOf( 'android' );
+      var androidLink = 'https://play.google.com/store/apps/details?id=com.communelabs.clchurch.bethelblr';
+      //console.log( 'androidLink: ' , androidLink );
+      //console.log( 'uagentString' , uagentString );
+      //console.log( 'indexAndroid: ' , indexAndroid );
+
+      if( 0 <= indexAndroid ) {
+        handleMobileDetected( androidLink );
+        return;
+      }
+
+      var iOSLink = 'https://itunes.apple.com/us/app/bethel-ag-church/id1165383456?mt=8&ign-mpt=uo%3D4';
+      var indexIPhone = uagentString.indexOf( 'iphone' );
+      var indexIPad = uagentString.indexOf( 'ipad' );
+      var indexIPod = uagentString.indexOf( 'ipod' );
+
+      //console.log( 'iOSLink: ' , iOSLink );
+      //console.log( 'indexIPhone: ' , indexIPhone );
+      //console.log( 'indexIPad: ' , indexIPad );
+      //console.log( 'indexIPod: ' , indexIPod );
+
+      //$( '#androidHyperlink' ).attr( "href", androidLink );
+      document.querySelector('#androidHyperlink').setAttribute('href', androidLink );
+      document.querySelector('#iosHyperlink').setAttribute('href', iOSLink );
+      //console.log( "document.querySelector('#androidHyperlink'): ", document.querySelector('#androidHyperlink') );
+      //console.log( "$( '#androidHyperlink' ): " , $( '#androidHyperlink' ) );
+      //$( '#iosHyperlink' ).attr( "href", iOSLink );
+
+      if( 0 <= indexIPhone || 0 <= indexIPod || 0 <= indexIPad ) {
+        handleMobileDetected( iOSLink );
+      }
+
+
+    });
+
+
+
+  </script>
+
+</html>
